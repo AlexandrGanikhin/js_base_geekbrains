@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>les8_task3</title>
+</head>
+
+<body>
+    <script>
+        //написать функцию, суммирующую неограниченное количество аргументов, использя каррирование
+
+        'use strict';
+        // function sum(a) {
+        //     let s = a;
+        //     function recurSum(b) {
+        //         s += b;
+        //         return recurSum;
+        //     }
+        //     return s;
+        // }
+
+        function sum(a) {
+
+            let currentSum = a;
+
+            function f(b) {
+                currentSum += b;
+                //console.log(currentSum);
+                console.log(f);
+                return f;
+            }
+
+            f.toString = function () {
+            return currentSum;
+            };
+
+            return f;
+        }
+
+
+        console.log(sum(3)(7)(5)(10));
+
+        // function a(s) {
+        //     s += 1;
+        //     return a;
+        // }
+
+        // console.log(a(5));
+    </script>
+</body>
+
+</html>
